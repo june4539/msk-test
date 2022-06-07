@@ -21,7 +21,7 @@ public class Producer {
         System.out.println("produce start : -------------------------------------------------------");
 
         Properties configs = new Properties();
-        configs.put("bootstrap.servers", "b-1.mosdevmsk.1hbmvx.c2.kafka.ap-northeast-2.amazonaws.com:9094,b-2.mosdevmsk.1hbmvx.c2.kafka.ap-northeast-2.amazonaws.com:9094");
+        configs.put("bootstrap.servers", "b-2.mostestmsk.fc3yls.c2.kafka.ap-northeast-2.amazonaws.com:9094,b-1.mostestmsk.fc3yls.c2.kafka.ap-northeast-2.amazonaws.com:9094\t");
         configs.put("acks", "all");
         configs.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         configs.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -32,7 +32,7 @@ public class Producer {
             System.out.println("-------------------------------------------------------");
             String message = "hello " + i;
             producer.send(new ProducerRecord<String, String>(TOPIC_NAME, message));
-            System.out.println("-------------------------------------------------------");
+            System.out.println("--------------------" + message);
         }
 
         producer.flush();
